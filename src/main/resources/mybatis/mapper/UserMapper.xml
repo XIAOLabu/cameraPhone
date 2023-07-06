@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cn.czz.cameraphone.mapper.UserMapper">
+
+    <insert id="insertUserInfo" parameterType="com.cn.czz.cameraphone.model.UserInfo">
+        insert into DB_phone.user_info
+            (USER_NO, PASSWORD, USER_NAME, USER_PHONE, LEVEL, C_TIME, UP_TIME)
+        values (#{userNo}, #{passWord}, #{userName}, #{userPhone}, #{level}, CURRENT_TIMESTAMP(), CURRENT_TIMESTAMP())
+    </insert>
+
+    <select id="selectUser" resultType="com.cn.czz.cameraphone.model.UserInfo">
+        select *
+        from DB_phone.user_info
+        where USER_NO = #{userNo}
+    </select>
+
+</mapper>

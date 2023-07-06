@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cn.czz.cameraphone.mapper.PhoneMapper">
+
+    <insert id="saveInfo">
+        insert into DB_phone.phone_info
+            (ID, CLIENT_IP, CLIENT_NO, CLIENT_PHONE,CLIENT_C_TIME, CLIENT_UP_TIME, CLIENT_SUM)
+        values
+            (#{ID}, #{CLIENT_IP}, #{CLIENT_NO}, #{CLIENT_PHONE}, CURRENT_TIMESTAMP(), CURRENT_TIMESTAMP(), #{CLIENT_SUM})
+    </insert>
+
+    <select id="selectInfo" resultType="java.lang.String">
+        select ID from DB_phone.phone_info
+                  where CLIENT_PHONE = #{CLIENT_PHONE}
+                  and CLIENT_NO = #{CLIENT_NO}
+        limit 1;
+    </select>
+
+    <update id="upDataInfo">
+        update DB_phone.phone_info
+            set CLIENT_UP_TIME = CURRENT_TIMESTAMP(),
+                CLIENT_SUM = (CLIENT_SUM + 1)
+            where ID = #{ID}
+    </update>
+</mapper>
+

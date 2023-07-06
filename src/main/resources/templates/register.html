@@ -1,0 +1,83 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" href="../static/css/bootstrap.css" />
+		<link rel="stylesheet" href="../static/css/register.css" />
+		<link rel="stylesheet" href="../static/css/footer&cbl.css" />
+		<link rel="stylesheet" href="../static/css/daohang.css" />
+		<script type="text/javascript" src="../static/js/jquery-1.11.3.js" ></script>
+		<script type="text/javascript" src="../static/js/bootstrap.js" ></script>
+		<script type="text/javascript" src="../static/js/templet.js" ></script>
+		<title></title>
+	</head>
+	<body>
+	<div id="main">
+		<div class="main">
+			<div class="container  ">
+				<div class="c2">
+					<a href=""></a><span>
+						<img src="../static/img/qifeiye.png" />
+					</span></a>
+					<p>从这里开始记录梦想路上的点点滴滴</p>
+				</div>
+				<div class="c3">
+					<form action="/user/insert" method="post">
+						<div class="form-group">
+							<label for="userName">用户名 *</label>
+							<input type="text" class="form-control" name="userName" id="userName">
+							<span class="pp hide">此项必须填写</span>
+						</div>
+						<div class="form-group">
+							<label for="userNo">用户登录号 *</label>
+							<input type="text" class="form-control" name="userNo" id="userNo">
+							<span class="pp hide">此项必须填写</span>
+						</div>
+						<div class="form-group">
+    						<label for="userPhone">手机号码 *</label>
+    						<input type="text" class="form-control" name="userPhone" id="userPhone">
+    						<span class="pp hide">此项必须填写</span>
+  						</div>
+  						<div class="form-group">
+    						<label for="passWord">密码 <img class="help" src="../static/img/help.png" title="最少8位"/>*</label>
+    						<input type="password" class="form-control" name="passWord" id="passWord">
+  							<span class="pp hide">此项必须填写</span>
+  						</div>
+  						<div class="form-group">
+    						<label for="passWord1">再次输入密码 </label>
+    						<input type="password" onblur="aa" class="form-control" name="passWord1" id="passWord1">
+  						</div>
+  						<div class="c3-1">
+							<button type="submit"  class="btn btn-default btn1">注册</button>
+							<a href="/thymeleaf/login" type="button" class="btn btn-default btn2">已经有账号了?请登录</a>
+						</div>>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	</body>
+	<script type="text/javascript" src="../static/js/hp.js" ></script>
+	<script type="text/javascript">
+		/*$(function(){
+			$("#dhbtn1").click(function(){
+			//	console.log(1);
+				$(".dhkuang").show();
+				$(".dhneirong").animate("left","679px")
+			})
+		})*/
+		paw1 = $("#passWord1").blur(aa)
+		function aa () {
+			let paw1 = $("#passWord1");
+			let paw = $("#passWord");
+			if (paw1.val() !== paw.val()){
+				alert("密码不一致，请重新输入");
+				paw1.val('')
+				paw.val('')
+				return;
+			}
+		}
+	</script>
+	
+</html>
